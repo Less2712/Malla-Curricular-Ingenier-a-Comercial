@@ -1,1 +1,56 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  background: #f4f4f9;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #5e35b1;
+}
+
+.legend {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f3e5f5;
+  border-radius: 10px;
+}
+
+.legend ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legend li {
+  background: var(--color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.semestre {
+  background: #fff;
+  border-left: 5px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ramo {
+  margin: 5px 0;
+  padding: 10px;
+  background: #ede7f6;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.ramo:hover {
+  background: #d1c4e9;
+}
 
