@@ -1,39 +1,29 @@
-// script.js
-fetch("malla_plan11.json")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("malla");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Curricular Interactiva - Ingeniería Comercial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Malla Curricular - Plan 11</h1>
 
-    data.forEach(sem => {
-      const semDiv = document.createElement("div");
-      semDiv.className = "semestre";
-      semDiv.innerHTML = `<h2>Semestre ${sem.semestre}</h2>`;
+  <div class="legend">
+    <strong>Leyenda por Área Formativa:</strong>
+    <ul>
+      <li style="--color:#7e57c2">Estrategia y Gestión Empresarial</li>
+      <li style="--color:#9575cd">Innovación y Emprendimiento</li>
+      <li style="--color:#b39ddb">Análisis de Datos</li>
+      <li style="--color:#d1c4e9">Economía y Finanzas</li>
+      <li style="--color:#ede7f6">Formación General</li>
+      <li style="--color:#ce93d8">Electivos</li>
+    </ul>
+  </div>
 
-      sem.ramos.forEach(ramo => {
-        const ramoDiv = document.createElement("div");
-        ramoDiv.className = "ramo";
-        ramoDiv.style.borderLeft = getColorByArea(ramo.area);
-        ramoDiv.innerHTML = `
-          <strong>${ramo.nombre}</strong><br>
-          <em>${ramo.area}</em><br>
-          Créditos: ${ramo.creditos}<br>
-          ${ramo.prerrequisitos.length > 0 ? `Prerrequisitos: ${ramo.prerrequisitos.join(", ")}` : ""}
-        `;
-        semDiv.appendChild(ramoDiv);
-      });
+  <div id="malla"></div>
 
-      container.appendChild(semDiv);
-    });
-  });
+  <script src="script.js"></script>
+</body>
+</html>
 
-function getColorByArea(area) {
-  const colors = {
-    "Estrategia y Gestión Empresarial": "5px solid #7e57c2",
-    "Innovación y Emprendimiento": "5px solid #9575cd",
-    "Análisis de Datos": "5px solid #b39ddb",
-    "Economía y Finanzas": "5px solid #d1c4e9",
-    "Formación General": "5px solid #ede7f6",
-    "Electivos": "5px solid #ce93d8"
-  };
-  return colors[area] || "5px solid #aaa";
-}
